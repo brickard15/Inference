@@ -10,7 +10,7 @@ public class IntegerTypeTester implements TypeTester{
         try{
             Integer.parseInt(sample);
             return true;
-        }catch(Exception e){
+        }catch(NumberFormatException e){
             return false;
         }
     }
