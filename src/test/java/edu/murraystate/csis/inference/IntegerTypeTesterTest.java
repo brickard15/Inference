@@ -10,7 +10,7 @@ public class IntegerTypeTesterTest {
     @Test
     public void validTest() {
         final String input = "1";
-        final IntegerTypeTester tester = new IntegerTypeTester();
+        final TypeTester tester = new IntegerTypeTester();
         boolean result = tester.test(input);
         Assert.assertTrue(result);
     }
@@ -18,7 +18,7 @@ public class IntegerTypeTesterTest {
     @Test
     public void invalidTest() {
         final String input = "x";
-        final IntegerTypeTester tester = new IntegerTypeTester();
+        final TypeTester tester = new IntegerTypeTester();
         boolean result = tester.test(input);
         Assert.assertFalse(result);
     }

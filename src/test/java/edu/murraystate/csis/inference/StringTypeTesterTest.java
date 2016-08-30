@@ -10,7 +10,7 @@ public class StringTypeTesterTest {
     @Test
     public void testTest() {
         final String input = "test";
-        final StringTypeTester tester = new StringTypeTester();
+        final TypeTester tester = new StringTypeTester();
         boolean result = tester.test(input);
         Assert.assertTrue(result);
     }
