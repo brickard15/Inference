@@ -4,20 +4,19 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
  * @author pwright4
  */
 public class IntegerTypeTesterTest {
     @Test
-    public void validTest(){
+    public void validTest() {
         final String input = "1";
         final IntegerTypeTester tester = new IntegerTypeTester();
         boolean result = tester.test(input);
         Assert.assertTrue(result);
     }
-    
+
     @Test
-    public void invalidTest(){
+    public void invalidTest() {
         final String input = "x";
         final IntegerTypeTester tester = new IntegerTypeTester();
         boolean result = tester.test(input);

@@ -1,18 +1,16 @@
 package edu.murraystate.csis.inference;
 
 /**
- *
  * @author pwright4
  */
-public class IntegerTypeTester implements TypeTester{
+public class IntegerTypeTester implements TypeTester {
 
     public boolean test(final String sample) {
-        try{
+        try {
             Integer.parseInt(sample);
             return true;
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
-    
 }
