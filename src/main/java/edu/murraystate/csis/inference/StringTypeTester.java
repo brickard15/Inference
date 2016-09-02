@@ -11,6 +11,7 @@ public class StringTypeTester implements TypeTester {
 
     }
 
+    @Override
     public Optional<String> test(final String sample) {
         return Optional.of("String");
     }
