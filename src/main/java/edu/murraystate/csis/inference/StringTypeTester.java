@@ -1,12 +1,18 @@
 package edu.murraystate.csis.inference;
 
+import java.util.Optional;
+
 /**
  * @author pwright4
  */
 public class StringTypeTester implements TypeTester {
 
-    public boolean test(final String sample) {
-        return true;
+    public StringTypeTester() {
+
+    }
+
+    public Optional<String> test(final String sample) {
+        return Optional.of("String");
     }
 
 }
