@@ -16,7 +16,7 @@ public class TryCatchTester<T> implements TypeTester {
     }
 
     @Override
-    public Optional<String> test(String sample) {
+    public Optional<String> test(final String sample) {
         try {
             testFunction.apply(sample);
             return Optional.of(typeString);

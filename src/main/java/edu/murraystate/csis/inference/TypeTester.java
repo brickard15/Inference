@@ -6,5 +6,5 @@ import java.util.Optional;
  * @author pwright4
  */
 public interface TypeTester {
-     Optional<String> test(String sample);
+     Optional<String> test(final String sample);
 }
