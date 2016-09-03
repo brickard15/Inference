@@ -2,4 +2,7 @@ language: java
 jdk:
   - oraclejdk8
 notifications:
-  slack: msucsis:$SLACK
+  slack: 
+    msucsis:$SLACK
+  on_success: always
+  on_failure: always
