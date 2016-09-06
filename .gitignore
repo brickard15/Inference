@@ -15,3 +15,24 @@ nbdist/
 .nb-gradle/
 
 # Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.recommenders/
+.project
+.classpath
+.factorypath
+*.launch
+.externalToolBuilders/
+.target
+.tern-project
+.springBeans
+.texlipse
