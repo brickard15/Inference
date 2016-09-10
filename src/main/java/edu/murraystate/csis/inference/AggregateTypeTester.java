@@ -38,9 +38,7 @@ public class AggregateTypeTester {
             results.add(P.p(type, percentage));
         }
 
-        Collections.sort(results, (r1, r2) -> {
-            return Double.compare(r1._2(), r2._2());
-        });
+        Collections.sort(results, (r1, r2) -> Double.compare(r2._2(), r1._2()));
 
         return results;
     }
