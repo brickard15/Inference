@@ -1,5 +1,7 @@
 package edu.murraystate.csis.inference;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,12 +19,14 @@ public class RegularExpressionTester implements TypeTester {
     }
 
     @Override
-    public Optional<String> test(final String sample) {
+    public List<String> test(final String sample) {
+        final List<String> result = new ArrayList<>();
         final Matcher m = pattern.matcher(sample);
         if (m.matches()) {
-            return Optional.of(typeString);
+            result.add(typeString);
+            return result;
         } else {
-            return Optional.empty();
+            return result;
         }
     }
 }

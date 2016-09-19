@@ -3,6 +3,7 @@ package edu.murraystate.csis.inference;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -47,7 +48,7 @@ public class RegularExpressionTesterTest {
 
     private void doTest(final String regex, final String typeString, final String sample, final boolean shouldPass) {
         final TypeTester tester = new RegularExpressionTester(typeString, regex);
-        final Optional<String> result = tester.test(sample);
+        final List<String> result = tester.test(sample);
         if (shouldPass) {
             positiveTest(regex, typeString, sample, result);
         } else {
@@ -55,15 +56,15 @@ public class RegularExpressionTesterTest {
         }
     }
 
-    private void positiveTest(final String regex, final String typeString, final String sample, Optional<String> result) {
+    private void positiveTest(final String regex, final String typeString, final String sample, final List<String> result) {
         final String nonEmptyMessage = String.format("Input %s with pattern %s should return a non empty result", sample, regex);
-        Assert.assertTrue(nonEmptyMessage, result.isPresent());
+        Assert.assertFalse(nonEmptyMessage, result.isEmpty());
         final String typeMessage = String.format("Input %s should have type %s", sample, typeString);
-        Assert.assertEquals(typeMessage, typeString, result.get());
+        Assert.assertEquals(typeMessage, typeString, result.get(0));
     }
 
-    private void negativeTest(final String regex, final String sample, Optional<String> result) {
+    private void negativeTest(final String regex, final String sample, final List<String> result) {
         final String emptyMessage = String.format("Input %s should return an empty result with pattern %s", sample, regex);
-        Assert.assertFalse(emptyMessage, result.isPresent());
+        Assert.assertTrue(emptyMessage, result.isEmpty());
     }
 }

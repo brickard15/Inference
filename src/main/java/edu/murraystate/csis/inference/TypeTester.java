@@ -1,10 +1,10 @@
 package edu.murraystate.csis.inference;
 
-import java.util.Optional;
+import java.util.List;
 
 /**
- * @author pwright4
+ * @author Phillip Wright
  */
 public interface TypeTester {
-     Optional<String> test(final String sample);
+     List<String> test(final String sample);
 }

@@ -1,5 +1,7 @@
 package edu.murraystate.csis.inference;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -12,8 +14,10 @@ public class StringTypeTester implements TypeTester {
     }
 
     @Override
-    public Optional<String> test(final String sample) {
-        return Optional.of("String");
+    public List<String> test(final String sample) {
+        final List<String> result = new ArrayList<>();
+        result.add("String");
+        return result;
     }
 
 }

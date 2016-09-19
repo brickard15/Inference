@@ -1,5 +1,7 @@
 package edu.murraystate.csis.inference;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -16,12 +18,14 @@ public class TryCatchTester<T> implements TypeTester {
     }
 
     @Override
-    public Optional<String> test(final String sample) {
+    public List<String> test(final String sample) {
         try {
             testFunction.apply(sample);
-            return Optional.of(typeString);
+            final List<String> result = new ArrayList<>();
+            result.add(typeString);
+            return result;
         } catch (Exception e) {
-            return Optional.empty();
+            return new ArrayList<>();
         }
     }
 }
