@@ -1,12 +1,8 @@
 package edu.murraystate.csis.inference;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * @author pwright4
- */
 public class StringTypeTester implements TypeTester {
 
     public StringTypeTester() {
@@ -14,10 +10,10 @@ public class StringTypeTester implements TypeTester {
     }
 
     @Override
-    public List<String> test(final String sample) {
-        final List<String> result = new ArrayList<>();
+    public TestResult test(final String sample) {
+        final Set<String> result = new HashSet<>();
         result.add("String");
-        return result;
+        return new TestResult(result);
     }
 
 }

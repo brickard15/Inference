@@ -1,11 +1,7 @@
 package edu.murraystate.csis.inference;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by pwright4 on 9/19/2016.
- */
 public class CompositeTypeTester implements TypeTester{
     private final List<TypeTester> testers;
 
@@ -14,11 +10,9 @@ public class CompositeTypeTester implements TypeTester{
     }
 
     @Override
-    public List<String> test(String sample) {
-        final List<String> result = new ArrayList<>();
-        for(final TypeTester t : testers){
-            result.addAll(t.test(sample));
-        }
-        return result;
+    public TestResult test(final String sample) {
+        return testers.stream()
+                .map(tester -> tester.test(sample))
+                .reduce(new TestResult(), TestResult::merge);
     }
 }

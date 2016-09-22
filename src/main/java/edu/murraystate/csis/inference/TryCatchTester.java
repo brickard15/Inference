@@ -1,13 +1,9 @@
 package edu.murraystate.csis.inference;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Function;
 
-/**
- * Created by Phillip Wright on 9/2/2016.
- */
 public class TryCatchTester<T> implements TypeTester {
     private final Function<String, T> testFunction;
     private final String typeString;
@@ -18,14 +14,14 @@ public class TryCatchTester<T> implements TypeTester {
     }
 
     @Override
-    public List<String> test(final String sample) {
+    public TestResult test(final String sample) {
         try {
             testFunction.apply(sample);
-            final List<String> result = new ArrayList<>();
+            final Set<String> result = new HashSet<>();
             result.add(typeString);
-            return result;
+            return new TestResult(result);
         } catch (Exception e) {
-            return new ArrayList<>();
+            return new TestResult();
         }
     }
 }

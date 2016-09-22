@@ -3,12 +3,6 @@ package edu.murraystate.csis.inference;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.Optional;
-
-/**
- * Created by Phillip Wright on 9/2/2016.
- */
 public class RegularExpressionTesterTest {
     @Test
     public void simpleValidTest() {
@@ -48,7 +42,7 @@ public class RegularExpressionTesterTest {
 
     private void doTest(final String regex, final String typeString, final String sample, final boolean shouldPass) {
         final TypeTester tester = new RegularExpressionTester(typeString, regex);
-        final List<String> result = tester.test(sample);
+        final TestResult result = tester.test(sample);
         if (shouldPass) {
             positiveTest(regex, typeString, sample, result);
         } else {
@@ -56,15 +50,15 @@ public class RegularExpressionTesterTest {
         }
     }
 
-    private void positiveTest(final String regex, final String typeString, final String sample, final List<String> result) {
+    private void positiveTest(final String regex, final String typeString, final String sample, final TestResult result) {
         final String nonEmptyMessage = String.format("Input %s with pattern %s should return a non empty result", sample, regex);
-        Assert.assertFalse(nonEmptyMessage, result.isEmpty());
+        Assert.assertFalse(nonEmptyMessage, result.getPossibleTypes().isEmpty());
         final String typeMessage = String.format("Input %s should have type %s", sample, typeString);
-        Assert.assertEquals(typeMessage, typeString, result.get(0));
+        Assert.assertTrue(typeMessage, result.getPossibleTypes().contains(typeString));
     }
 
-    private void negativeTest(final String regex, final String sample, final List<String> result) {
+    private void negativeTest(final String regex, final String sample, final TestResult result) {
         final String emptyMessage = String.format("Input %s should return an empty result with pattern %s", sample, regex);
-        Assert.assertTrue(emptyMessage, result.isEmpty());
+        Assert.assertTrue(emptyMessage, result.getPossibleTypes().isEmpty());
     }
 }

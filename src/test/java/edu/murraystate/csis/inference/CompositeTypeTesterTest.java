@@ -4,11 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * Created by pwright4 on 9/19/2016.
- */
 public class CompositeTypeTesterTest {
     @Test
     public void simpleTest(){
@@ -18,10 +17,10 @@ public class CompositeTypeTesterTest {
         returns.add("ola");
 
         final TypeTester dummy = sample -> {
-            final List<String> result = new ArrayList<>();
+            final Set<String> result = new HashSet<>();
             result.add(returns.get(0));
             returns.remove(0);
-            return result;
+            return new TestResult(result);
         };
 
         final List<TypeTester> testers = new ArrayList<>();
@@ -30,13 +29,13 @@ public class CompositeTypeTesterTest {
         testers.add(dummy);
 
         final TypeTester composite = new CompositeTypeTester(testers);
-        final List<String> result = composite.test("teststring");
+        final TestResult result = composite.test("teststring");
 
-        Assert.assertEquals(3,result.size());
+        Assert.assertEquals(3, result.getPossibleTypes().size());
         Assert.assertEquals(0,returns.size());
-        Assert.assertEquals("hello",result.get(0));
-        Assert.assertEquals("hola",result.get(1));
-        Assert.assertEquals("ola",result.get(2));
+        Assert.assertTrue(result.getPossibleTypes().contains("hello"));
+        Assert.assertTrue(result.getPossibleTypes().contains("hola"));
+        Assert.assertTrue(result.getPossibleTypes().contains("ola"));
 
     }
 
