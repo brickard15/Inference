@@ -8,7 +8,7 @@ public interface TypeTester {
 
     default List<TestResult> test(final List<String> samples) {
         return samples.stream()
-                .map(sample -> test(sample))
+                .map(this::test)
                 .collect(Collectors.toList());
      }
 }
