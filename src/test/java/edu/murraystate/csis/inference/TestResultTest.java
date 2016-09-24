@@ -13,15 +13,20 @@ public class TestResultTest {
         types.add("one");
         types.add("two");
 
-        final TestResult r = new TestResult(types);
+        final String testSample = "testSample";
+
+        final TestResult r = new TestResult(types, testSample);
         Assert.assertEquals(types, r.getPossibleTypes());
+        Assert.assertEquals(testSample, r.getSample());
     }
 
     @Test
     public void creationTestWithoutTypes() {
-        final TestResult r = new TestResult();
+        final String testSample = "testSample";
+        final TestResult r = new TestResult(testSample);
         Assert.assertNotNull(r.getPossibleTypes());
         Assert.assertTrue(r.getPossibleTypes().isEmpty());
+        Assert.assertEquals(testSample, r.getSample());
     }
 
     @Test
@@ -32,8 +37,10 @@ public class TestResultTest {
         final Set<String> rightTypes = new HashSet<>();
         rightTypes.add("two");
 
-        final TestResult left = new TestResult(leftTypes);
-        final TestResult right = new TestResult(rightTypes);
+        final String testSample = "testSample";
+
+        final TestResult left = new TestResult(leftTypes, testSample);
+        final TestResult right = new TestResult(rightTypes, testSample);
 
         final TestResult merged = left.mergeWith(right);
 
@@ -42,6 +49,7 @@ public class TestResultTest {
         Assert.assertEquals(2, merged.getPossibleTypes().size());
         Assert.assertTrue(merged.getPossibleTypes().contains("one"));
         Assert.assertTrue(merged.getPossibleTypes().contains("two"));
+        Assert.assertEquals(testSample, merged.getSample());
     }
 
     @Test
@@ -52,8 +60,11 @@ public class TestResultTest {
         final Set<String> rightTypes = new HashSet<>();
         rightTypes.add("two");
 
-        final TestResult left = new TestResult(leftTypes);
-        final TestResult right = new TestResult(rightTypes);
+        final String testSample = "testSample";
+
+
+        final TestResult left = new TestResult(leftTypes, testSample);
+        final TestResult right = new TestResult(rightTypes, testSample);
 
         final TestResult merged = TestResult.merge(left, right);
 
@@ -62,5 +73,6 @@ public class TestResultTest {
         Assert.assertEquals(2, merged.getPossibleTypes().size());
         Assert.assertTrue(merged.getPossibleTypes().contains("one"));
         Assert.assertTrue(merged.getPossibleTypes().contains("two"));
+        Assert.assertEquals(testSample, merged.getSample());
     }
 }

@@ -13,7 +13,7 @@ public class StringTypeTester implements TypeTester {
     public TestResult test(final String sample) {
         final Set<String> result = new HashSet<>();
         result.add("String");
-        return new TestResult(result);
+        return new TestResult(result, sample);
     }
 
 }

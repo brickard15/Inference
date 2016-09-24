@@ -20,7 +20,7 @@ public class CompositeTypeTesterTest {
             final Set<String> result = new HashSet<>();
             result.add(returns.get(0));
             returns.remove(0);
-            return new TestResult(result);
+            return new TestResult(result, sample);
         };
 
         final List<TypeTester> testers = new ArrayList<>();

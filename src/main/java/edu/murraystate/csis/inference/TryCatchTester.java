@@ -19,9 +19,9 @@ public class TryCatchTester<T> implements TypeTester {
             testFunction.apply(sample);
             final Set<String> result = new HashSet<>();
             result.add(typeString);
-            return new TestResult(result);
+            return new TestResult(result, sample);
         } catch (Exception e) {
-            return new TestResult();
+            return new TestResult(sample);
         }
     }
 }

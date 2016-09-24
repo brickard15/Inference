@@ -21,6 +21,6 @@ public class RegularExpressionTester implements TypeTester {
         if (m.matches()) {
             result.add(typeString);
         }
-        return new TestResult(result);
+        return new TestResult(result, sample);
     }
 }

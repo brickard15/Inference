@@ -13,6 +13,6 @@ public class CompositeTypeTester implements TypeTester{
     public TestResult test(final String sample) {
         return testers.stream()
                 .map(tester -> tester.test(sample))
-                .reduce(new TestResult(), TestResult::merge);
+                .reduce(new TestResult(sample), TestResult::merge);
     }
 }
