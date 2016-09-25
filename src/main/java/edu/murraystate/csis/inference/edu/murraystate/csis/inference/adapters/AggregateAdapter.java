@@ -1,7 +1,7 @@
 package edu.murraystate.csis.inference.edu.murraystate.csis.inference.adapters;
 
-import edu.murraystate.csis.inference.TestResult;
-import edu.murraystate.csis.inference.TypeTester;
+import edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests.TestResult;
+import edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests.TypeTester;
 
 import java.util.List;
 import java.util.stream.Collectors;

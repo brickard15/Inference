@@ -1,4 +1,4 @@
-package edu.murraystate.csis.inference;
+package edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests;
 
 import java.util.List;
 
