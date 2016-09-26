@@ -1,4 +1,4 @@
-package edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests;
+package edu.murraystate.csis.inference.tests;
 
 import java.util.HashSet;
 import java.util.Set;

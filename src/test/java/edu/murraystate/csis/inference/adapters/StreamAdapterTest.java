@@ -1,7 +1,7 @@
-package edu.murraystate.csis.inference.edu.murraystate.csis.inference.adapters;
+package edu.murraystate.csis.inference.adapters;
 
-import edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests.TestResult;
-import edu.murraystate.csis.inference.edu.murraystate.csis.inference.tests.TypeTester;
+import edu.murraystate.csis.inference.tests.TestResult;
+import edu.murraystate.csis.inference.tests.TypeTester;
 import org.junit.Assert;
 import org.junit.Test;
 
