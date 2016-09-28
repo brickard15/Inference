@@ -14,7 +14,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class AggregateAdapterTest {
+public class ListAdapterTest {
     @Test
     public void aggregateTest() {
         final TypeTester adaptee = mock(TypeTester.class);
@@ -26,7 +26,7 @@ public class AggregateAdapterTest {
         when(adaptee.test(anyString())).thenReturn(testResult);
         // TODO actually capture the string and use it to construct a more accurate test result
 
-        final TestAdapter<List<String>, List<TestResult>> t = new AggregateAdapter(adaptee);
+        final TestAdapter<List<String>, List<TestResult>> t = new ListAdapter(adaptee);
 
         final List<String> samples = new ArrayList<>();
 
