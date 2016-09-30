@@ -1,4 +1,4 @@
-package edu.murraystate.csis.inference.adapters;
+package edu.murraystate.csis.inference.adapters.documents;
 
 import edu.murraystate.csis.inference.tests.*;
 import org.junit.Assert;

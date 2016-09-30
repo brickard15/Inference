@@ -1,6 +1,6 @@
 package edu.murraystate.csis.inference.tests;
 
-import edu.murraystate.csis.inference.adapters.StreamAdapter;
+import edu.murraystate.csis.inference.adapters.aggregation.StreamAdapter;
 import org.junit.Assert;
 import org.junit.Test;
 

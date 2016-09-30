@@ -1,5 +1,7 @@
-package edu.murraystate.csis.inference.adapters;
+package edu.murraystate.csis.inference.adapters.documents;
 
+import edu.murraystate.csis.inference.adapters.TestAdapter;
+import edu.murraystate.csis.inference.adapters.aggregation.StreamAdapter;
 import edu.murraystate.csis.inference.tests.TestResult;
 import edu.murraystate.csis.inference.tests.TypeTester;
 
