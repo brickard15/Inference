@@ -1,23 +1,24 @@
 package edu.murraystate.csis.inference.adapters.documents;
 
 import edu.murraystate.csis.inference.adapters.TestAdapter;
-import edu.murraystate.csis.inference.adapters.aggregation.StreamAdapter;
+import edu.murraystate.csis.inference.adapters.aggregation.StreamWithPathAdapter;
 import edu.murraystate.csis.inference.tests.TestResult;
 import edu.murraystate.csis.inference.tests.TypeTester;
+import fj.P2;
 
 import java.util.stream.Stream;
 
-public abstract class DocumentAdapter<T> implements TestAdapter<T, Stream<TestResult>> {
-    private final StreamAdapter streamAdapter;
+public abstract class DocumentAdapter<T> implements TestAdapter<T, Stream<P2<String, TestResult>>> {
+    private final StreamWithPathAdapter streamWithPathAdapter;
 
     public DocumentAdapter(final TypeTester tester) {
-        streamAdapter = new StreamAdapter(tester);
+        streamWithPathAdapter = new StreamWithPathAdapter(tester);
     }
 
-    public abstract Stream<TestResult> getSampleStream(T document);
+    public abstract Stream<P2<String, TestResult>> getSampleStream(T document);
 
-    public Stream<TestResult> test(T document) {
-        final Stream<TestResult> sampleStream = getSampleStream(document);
-        return streamAdapter.test(sampleStream);
+    public Stream<P2<String, TestResult>> test(T document) {
+        final Stream<P2<String, TestResult>> sampleStream = getSampleStream(document);
+        return streamWithPathAdapter.test(sampleStream);
     }
 }
