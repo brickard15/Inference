@@ -12,13 +12,13 @@ public class DoubleTypeTesterTest {
         final TestResult result = doubleTester.test(input);
         
         Assert.assertFalse(
-                "The string \"1\" should return a non empty result",
-                result.getPossibleTypes().isEmpty()
+            "The string \"1\" should return a non empty result",
+            result.getPossibleTypes().isEmpty()
         );
         
         Assert.assertTrue(
-                "The string \"1\" should be identified as an Integer",
-                result.getPossibleTypes().contains("Double")
+            "The string \"1\" should be identified as an Double",
+            result.getPossibleTypes().contains("Double")
         );
     }
 
@@ -28,8 +28,8 @@ public class DoubleTypeTesterTest {
         final TypeTester doubleTester = new DoubleTypeTester();
         final TestResult result = doubleTester.test(input);
         Assert.assertTrue(
-                "The string \"x\" should return an empty result",
-                result.getPossibleTypes().isEmpty()
+            "The string \"x\" should return an empty result",
+            result.getPossibleTypes().isEmpty()
         );
     }
     
@@ -40,8 +40,13 @@ public class DoubleTypeTesterTest {
         final TestResult doubleResult = doubleTester.test(input);
         
         Assert.assertTrue(
-                "The string \"1\" should be identified as an Integer",
-                doubleResult.getPossibleTypes().contains("Double")
+            "The string \"2.0\" should be identified as an Double",
+            doubleResult.getPossibleTypes().contains("Double")
+        );
+        
+        Assert.assertFalse(
+            "The string \"2.0\" should return a non empty result",
+            doubleResult.getPossibleTypes().isEmpty()
         );
     }
 }
