@@ -10,10 +10,16 @@ public class DoubleTypeTesterTest {
         final String input = "1";
         final TypeTester doubleTester = new DoubleTypeTester();
         final TestResult result = doubleTester.test(input);
-        Assert.assertFalse("The string \"1\" should return a non empty result",
-                result.getPossibleTypes().isEmpty());
-        Assert.assertTrue("The string \"1\" should be identified as an Integer",
-                result.getPossibleTypes().contains("Double"));
+        
+        Assert.assertFalse(
+                "The string \"1\" should return a non empty result",
+                result.getPossibleTypes().isEmpty()
+        );
+        
+        Assert.assertTrue(
+                "The string \"1\" should be identified as an Integer",
+                result.getPossibleTypes().contains("Double")
+        );
     }
 
     @Test
@@ -21,7 +27,21 @@ public class DoubleTypeTesterTest {
         final String input = "x";
         final TypeTester doubleTester = new DoubleTypeTester();
         final TestResult result = doubleTester.test(input);
-        Assert.assertTrue("The string \"x\" should return an empty result",
-                result.getPossibleTypes().isEmpty());
+        Assert.assertTrue(
+                "The string \"x\" should return an empty result",
+                result.getPossibleTypes().isEmpty()
+        );
+    }
+    
+    @Test
+    public void TestResultInputValid(){
+        final TestResult input = new TestResult("2.0");
+        final TypeTester doubleTester = new DoubleTypeTester();
+        final TestResult doubleResult = doubleTester.test(input);
+        
+        Assert.assertTrue(
+                "The string \"1\" should be identified as an Integer",
+                doubleResult.getPossibleTypes().contains("Double")
+        );
     }
 }
