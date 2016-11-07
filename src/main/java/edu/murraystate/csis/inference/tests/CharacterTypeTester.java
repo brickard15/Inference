@@ -1,21 +1,23 @@
 package edu.murraystate.csis.inference.tests;
 
-public final class CharacterTypeTester extends TryCatchTester<Character> {
+import java.util.HashSet;
+import java.util.Set;
 
-    public CharacterTypeTester() {
-        super(
-            "Character", 
-            (String input) -> {
-                Character characterResult = ' ';
-                final int characterLength = 1;
+public final class CharacterTypeTester implements TypeTester {
+    
+    private final String typeString = "Character";
 
-                if(input.length() == characterLength){
-                    Character firstCharacter = input.charAt(0);
-                    characterResult = firstCharacter;
-                }
+    @Override
+    public TestResult test(String sample) {
 
-                return characterResult;    
-            }
-            );
+        final int characterLength = 1;
+
+        if(sample.length() == characterLength){
+            final Set<String> result = new HashSet<>();
+            result.add(typeString);
+            return new TestResult(result, sample);
+        }else{
+            return new TestResult(sample);
+        }
     }
 }
