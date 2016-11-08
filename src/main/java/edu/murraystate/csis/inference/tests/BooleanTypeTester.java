@@ -8,9 +8,10 @@ public class BooleanTypeTester implements TypeTester{
 
     @Override
     public TestResult test(String sample) {
-        if("true".equals(sample) || "false".equals(sample)){
+        
+        if(sample.contentEquals("true") || sample.contentEquals("false")){
             Set<String> possibleTypes = new HashSet<>();
-            possibleTypes.add(sample);
+            possibleTypes.add(typeString);
             return new TestResult(possibleTypes, sample);
         }else{
             return new TestResult(sample);
