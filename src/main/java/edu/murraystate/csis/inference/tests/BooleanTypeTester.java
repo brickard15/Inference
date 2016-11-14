@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BooleanTypeTester implements TypeTester{
-    final String typeString = "Boolean";
+    private static final String typeString = "Boolean";
 
     @Override
-    public TestResult test(String sample) {
+    public TestResult test(final String sample) {
         
         if(sample.contentEquals("true") || sample.contentEquals("false")){
             Set<String> possibleTypes = new HashSet<>();

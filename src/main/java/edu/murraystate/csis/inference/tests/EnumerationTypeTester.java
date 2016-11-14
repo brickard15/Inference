@@ -5,9 +5,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EnumerationTypeTester implements TypeTester {
-    final int limit;
-    final String typeTemplate = "Enumeration(%s)";
-    final Set<String> valuesSeen;
+    private static final String typeTemplate = "Enumeration(%s)";
+    private final int limit;
+    private final Set<String> valuesSeen;
 
     public EnumerationTypeTester(final int limit) {
         this.limit = limit;

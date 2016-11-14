@@ -6,8 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegularExpressionTester implements TypeTester {
-    final String typeString;
-    final Pattern pattern;
+    private final String typeString;
+    private final Pattern pattern;
 
     public RegularExpressionTester(final String typeString, final String regex) {
         this.typeString = typeString;
