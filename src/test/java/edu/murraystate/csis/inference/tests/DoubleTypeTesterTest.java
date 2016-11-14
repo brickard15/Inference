@@ -34,7 +34,7 @@ public class DoubleTypeTesterTest {
     }
     
     @Test
-    public void TestResultInputValid(){
+    public void testResultInputValid() {
         final TestResult input = new TestResult("2.0");
         final TypeTester doubleTester = new DoubleTypeTester();
         final TestResult doubleResult = doubleTester.test(input);
