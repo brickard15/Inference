@@ -44,4 +44,15 @@ public class BooleanTypeTesterTest {
                 result.getPossibleTypes().isEmpty()
         );
     }
+    
+    @Test
+    public void nullInputTest(){
+        final String input = null;
+        final TypeTester booleanTester = new BooleanTypeTester();
+        final TestResult result = booleanTester.test(input);
+        
+        Assert.assertTrue(
+                result.getPossibleTypes().isEmpty()
+        );
+    }
 }
