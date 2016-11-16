@@ -8,9 +8,9 @@ public class BooleanTypeTester implements TypeTester{
     
     @Override
     public TestResult test(final String sample) { 
-        try{
+        if(sample != null){
             return parseBoolean(sample);
-        }catch(Exception e){
+        }else{
             return new TestResult(sample);
         }
     }
