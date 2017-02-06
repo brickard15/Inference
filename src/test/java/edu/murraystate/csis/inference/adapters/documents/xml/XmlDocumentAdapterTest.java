@@ -10,11 +10,7 @@ import static org.mockito.Mockito.mock;
 
 public class XmlDocumentAdapterTest {
     @Test
-    public void getSampleStreamReturnsAStream(){
-        DocumentAdapter testDocumentAdapter = new XmlDocumentAdapter(mock(TypeTester.class));
+    public void simpleTest(){
         
-        Object mockObject = mock(Object.class);
-        
-        assertThat(testDocumentAdapter.getSampleStream(mockObject), instanceOf(Stream.class));
     }
 }
