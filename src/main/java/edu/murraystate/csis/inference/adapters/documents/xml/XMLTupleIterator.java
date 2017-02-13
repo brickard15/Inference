@@ -16,7 +16,7 @@ public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
     public XMLTupleIterator(Reader reader) throws XMLStreamException{
         try {
             this.reader = reader;
-            xmlEventReader = XMLInputFactory.newFactory().createXMLEventReader(reader);
+            xmlEventReader = XMLInputFactory.newInstance().createXMLEventReader(reader);
         } catch (XMLStreamException ex) {
             throw new XMLStreamException("Invalid Reader");
         }
@@ -31,5 +31,7 @@ public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
     public Optional<P2<String, String>> next() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
     
 }
