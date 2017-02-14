@@ -56,4 +56,22 @@ public class XMLTupleIteratorTest {
         String result2 = possibleResult2.get();
         assertEquals("Doe", result2);
     }
+
+    public Reader setupXMLReaderWithNoContent() throws IOException {
+        File tempFile = File.createTempFile("XML", "ReaderWithNoContent");
+        PrintWriter tempWriter = new PrintWriter(tempFile);
+        tempWriter.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?><name><first></first><last></last></name>");
+        tempWriter.close();
+
+        return new FileReader(tempFile);
+    }
+
+    @Test
+    public void testGetValueWithNoContent() throws IOException, XMLStreamException {
+        Reader xmlReader = setupXMLReaderWithNoContent();
+        XMLTupleIterator xmlTupleIterator = new XMLTupleIterator(xmlReader);
+
+        Optional<String> possibleResult = xmlTupleIterator.getValue();
+        assertFalse(possibleResult.isPresent());
+    }
 }
