@@ -55,6 +55,5 @@ public class XMLTupleIteratorTest {
         assertTrue(possibleResult2.isPresent());
         String result2 = possibleResult2.get();
         assertEquals("Doe", result2);
-
     }
 }
