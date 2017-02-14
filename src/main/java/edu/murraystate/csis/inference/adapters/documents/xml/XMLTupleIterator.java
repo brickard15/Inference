@@ -56,11 +56,10 @@ public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
                 } else {
                     return getValue();
                 }
-            }else {
-                return Optional.empty();
             }
         } catch (XMLStreamException e) {
             return Optional.empty();
         }
+        return Optional.empty();
     }
 }
