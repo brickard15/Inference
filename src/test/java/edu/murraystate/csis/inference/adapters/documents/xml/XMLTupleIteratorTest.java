@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class XMLTupleIteratorTest {
 
-    public FileReader setupXMLReaderWithOneTag() throws IOException {
+    public Reader setupXMLReaderWithOneTag() throws IOException {
         File tempFile = File.createTempFile("XML", "TempFile");
         PrintWriter tempWriter = new PrintWriter(tempFile);
         tempWriter.println("<name>John</name>");
@@ -21,7 +21,7 @@ public class XMLTupleIteratorTest {
 
     @Test
     public void testGetValueWithOneTag() throws IOException, XMLStreamException {
-        FileReader fileReader = setupXMLReaderWithOneTag();
+        Reader fileReader = setupXMLReaderWithOneTag();
         XMLTupleIterator xmlTupleIterator = new XMLTupleIterator(fileReader);
 
         Optional<String> possibleResult = xmlTupleIterator.getValue();
@@ -29,6 +29,5 @@ public class XMLTupleIteratorTest {
 
         String result = possibleResult.get();
         assertEquals("John", result);
-
     }
 }
