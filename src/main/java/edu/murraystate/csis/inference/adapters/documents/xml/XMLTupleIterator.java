@@ -1,5 +1,6 @@
 package edu.murraystate.csis.inference.adapters.documents.xml;
 
+import fj.P;
 import fj.P2;
 import java.io.Reader;
 import java.util.Iterator;
@@ -7,6 +8,7 @@ import java.util.Optional;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.XMLEvent;
 
 public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
 
@@ -29,9 +31,36 @@ public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
 
     @Override
     public Optional<P2<String, String>> next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Optional<P2<String, String>> result = Optional.empty();
+
+        Optional<String> possiblePath = getPath();
+        Optional<String> possibleValue = getValue();
+        if (possiblePath.isPresent() && possibleValue.isPresent()){
+            P2<String, String> tuple = P.p(possiblePath.get(),possibleValue.get());
+            result = Optional.of(tuple);
+        }
+
+        return result;
     }
-    
-    
-    
+
+    public Optional<String> getPath(){
+        return Optional.empty();
+    }
+
+    public Optional<String> getValue(){
+        try {
+            if (xmlEventReader.hasNext()) {
+                XMLEvent nextEvent = xmlEventReader.nextEvent();
+                if (nextEvent.isCharacters()) {
+                    return Optional.of(nextEvent.toString());
+                } else {
+                    return getValue();
+                }
+            }else {
+                return Optional.empty();
+            }
+        } catch (XMLStreamException e) {
+            return Optional.empty();
+        }
+    }
 }
