@@ -44,6 +44,7 @@ public class XMLTupleIterator implements Iterator<Optional<P2<String, String>>>{
     }
 
     public Optional<String> getPath(){
+
         return Optional.empty();
     }
 
